@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head >
+
+    <meta charset="UTF-8">
+    <base href="/">
+   
+    <title > DigitalTulip </title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/base.css">
+    <link rel="stylesheet" href="style/ticker.css">
+    <!-- custom styles -->
+    <!-- JS -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+    <!-- ANGULAR CUSTOM -->
+    <script src="js/controllers/DefaultCtrl.js"></script>
+    <script src="js/controllers/MainCtrl.js"></script>
+
+    <!-- ANGULAR CUSTOM -->
+    <script src="js/services/application.js"></script>
+    <script src="js/services/default.js"></script>
+    <script src="js/services/notification.js"></script>
+    <script src="js/appRoutes.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="lib/angular-gridster/angular-gridster.min.css" />
+
+    <script src="lib/javascript-detect-element-resize/detect-element-resize.js"></script>
+    <script src="lib/angular-gridster/angular-gridster.js"></script>
+
+    <link rel="icon" type="image/png" href="img/Logo_tulip.png"/>
+    
+</head>
+
+<body ng-app="XaaP" ng-controller="DefaultController">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" alt="Atos"><img src="img/AtosHome.png" alt="Atos"/></a>
+            </div>
+            <div class="navbar-right">
+                <div>
+                    <span class="trigger" ng-click="show=!show">
+                        <img src= '<%=user.image%>' style="width: 59px; height: 59px;"/>
+                    </span>
+                </div>
+                <div class="profile" ng-show="show">
+                    <div class="photo">
+                        <img src= '<%=user.image%>' style="width: 59px; height: 59px;"/>
+                    </div>
+                    <div class="detail">
+                        <h4><%=user.displayName%></h4>
+                        <p><%=user.email%></p>
+                    </div>
+                    <ul class="menu">
+                        <li class="divider"></li>
+                        <li class="item" ng-click="logout()"><p>Sign Out</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid navbar-bottom">&nbsp;</div>
+    <div class="container-fluid content">
+        <div ng-view></div>
+       </div> 
+
+     
+      
+</body>
+
+</html>
