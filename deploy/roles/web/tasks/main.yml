@@ -5,6 +5,15 @@
       - node
       - npm
       - git
+    when: ansible_os_family == 'Debian'
+
+  - name: Execute yum install
+    yum: name={{item}} state=present
+    with_items : 
+      - node
+      - npm
+      - git
+    when: ansible_os_family == 'RedHat'
 
   - name: Create group
     group: name={{group}} state=present
