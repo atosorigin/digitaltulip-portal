@@ -1,7 +1,7 @@
 ---
 - name: Deploy Node Application
   hosts: tag_class_{{env}}-portalserver
-  remote_user: ubuntu
+  remote_user: teamcity
   sudo: yes
   roles : 
     - mongodb
