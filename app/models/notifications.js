@@ -23,13 +23,18 @@ module.exports = {
                 body += chunk;
             });
             res.on('end', function(){
-                var parsed = JSON.parse(body);
-
-                if (parsed.result.length == 0){
-                    callback('[]');
+                var parsed;
+                try{
+                    parsed = JSON.parse(body);
+                    if (parsed.result.length == 0){
+                        callback('[]');
+                    }
+                    else{
+                        callback(parsed);    
+                    }
                 }
-                else{
-                    callback(parsed);    
+                catch(err){
+                    callback('[]');
                 }
             })
         }).end();

@@ -22,9 +22,11 @@ angular.module('MainCtrl', []).controller('MainController', ['$scope', '$window'
         $timeout($scope.switchFirst, 1000);
     };
     $scope.switchFirst = function() {
-        $scope.notifications.push($scope.notifications.shift());
-        $scope.moving = false;
-        $scope.$apply();
+        if ($scope.notifications != undefined){
+            $scope.notifications.push($scope.notifications.shift());
+            $scope.moving = false;
+            $scope.$apply();    
+        }
     };
 
     $interval($scope.moveLeft, 5000);
