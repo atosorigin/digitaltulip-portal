@@ -15,9 +15,7 @@
     when: ansible_os_family == 'Debian'
 
   - name: Install the mongodb package
-    yum: name={{ item }} state=present
-    with_items:
-    - mongodb-org
+    yum: name=http://repo.mongodb.org/yum/redhat/6/mongodb-org/3.0/x86_64/RPMS/mongodb-org-3.0.0-3.el6.x86_64.rpm state=present
     when: ansible_os_family == 'RedHat'
 
   - name: create data directory for mongodb
