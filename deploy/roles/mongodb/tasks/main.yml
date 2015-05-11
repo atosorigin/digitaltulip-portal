@@ -15,7 +15,7 @@
     when: ansible_os_family == 'Debian'
 
   - name: Install the mongodb package
-    apt: name={{ item }} state=present
+    yum: name={{ item }} state=present
     with_items:
     - mongodb-org
     when: ansible_os_family == 'RedHat'
