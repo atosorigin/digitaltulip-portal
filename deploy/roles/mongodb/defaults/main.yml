@@ -1,4 +1,4 @@
 ---
 
 mongodb_packages:
-  - mongodb-org-3.0
+  - mongodb-org
