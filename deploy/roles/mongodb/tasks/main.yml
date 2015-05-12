@@ -4,7 +4,6 @@
 
   - name: Add public key
     apt_key: keyserver=keyserver.ubuntu.com id=7F0CEB10
-    when: ansible_os_family == 'Debian'
 
   - name: Add Repository
     apt_repository: repo='deb http://repo.mongodb.org/apt/ubuntu/ trusty/mongodb-org/3.0 multiverse' state=present
@@ -16,8 +15,13 @@
     - mongodb-org
     when: ansible_os_family == 'Debian'
 
-  - name: Install the mongodb package
-    yum: name=http://repo.mongodb.org/yum/redhat/6/mongodb-org/3.0/x86_64/RPMS/mongodb-org-3.0.0-3.el6.x86_64.rpm state=present
+  - name: RedHat | Add source sources
+    template: src=mongodb.repo.j2 dest=/etc/yum.repos.d/mongodb.repo
+    when: ansible_os_family == 'RedHat'
+
+  - name: RedHat | Install Packages
+    yum: name={{ item }} state=installed
+    with_items: mongodb_packages
     when: ansible_os_family == 'RedHat'
 
   - name: create data directory for mongodb
