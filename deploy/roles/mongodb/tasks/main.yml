@@ -25,6 +25,7 @@
   - name: Change SELINUX
     command: semanage port -a -t mongod_port_t -p tcp 27017
     when: ansible_os_family == 'RedHat'
+    ignore_errors: yes
 
   - name: Start Mongo Service
     service: name=mongod state=started
