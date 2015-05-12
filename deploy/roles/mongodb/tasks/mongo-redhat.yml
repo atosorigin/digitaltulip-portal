@@ -1,4 +1,4 @@
---
+---
   - name: RedHat | Add source sources
     template: src=mongodb.repo.j2 dest=/etc/yum.repos.d/mongodb.repo
 

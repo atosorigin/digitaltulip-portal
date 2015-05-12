@@ -1,3 +1,4 @@
+---
   - name: Add public key
     apt_key: keyserver=keyserver.ubuntu.com id=7F0CEB10
 
