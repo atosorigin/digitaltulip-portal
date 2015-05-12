@@ -8,7 +8,7 @@
     when: ansible_os_family == 'Debian'
 
   - name: Add Repo for RedHat
-    command: sudo curl -sL https://rpm.nodesource.com/setup | bash
+    command: "sudo curl -sL https://rpm.nodesource.com/setup | bash -"
 
   - name: Execute yum install
     yum: name={{item}} state=present
