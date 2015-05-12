@@ -13,9 +13,19 @@
 
   - name: Create the mongodb configuration file
     template: src=mongodb.conf dest=/etc/init/mongodb.conf
+    when: ansible_os_family == 'Debian'
 
   - name: Copy the keyfile for authentication
     copy: src=secret dest={{ mongodb_datadir_prefix }}/secret owner=mongod group=mongod mode=0400
 
   - name: Start Mongo Service
     service: name=mongodb state=started
+    when: ansible_os_family == 'Debian'
+
+  - name: Change SELINUX
+    command: semanage port -a -t mongod_port_t -p tcp 27017
+    when: ansible_os_family == 'RedHat'
+
+  - name: Start Mongo Service
+    service: name=mongod state=started
+    when: ansible_os_family == 'RedHat'

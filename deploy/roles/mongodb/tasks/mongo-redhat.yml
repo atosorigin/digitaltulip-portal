@@ -4,6 +4,7 @@
     with_items : 
       - python
       - libselinux-python
+      - policycoreutils-python
     when: ansible_os_family == 'RedHat'
 
   - name: RedHat | Add source sources
