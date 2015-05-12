@@ -53,10 +53,10 @@
   - name: Add env specific migrations
     template: src=0021_addUserImages.js dest=/var/www/portal/migrations/0021_addUserImages.js
   - name: Run migrations down
-    command : nodejs {{basedir}}{{project_name}}/node_modules/mongo-migrate/index.js -runmm  -c {{basedir}}{{project_name}} down
+    command : node {{basedir}}{{project_name}}/node_modules/mongo-migrate/index.js -runmm  -c {{basedir}}{{project_name}} down
     ignore_errors: yes
   - name: Run migrations up
-    command : nodejs {{basedir}}{{project_name}}/node_modules/mongo-migrate/index.js -runmm  -c {{basedir}}{{project_name}} up
+    command : node {{basedir}}{{project_name}}/node_modules/mongo-migrate/index.js -runmm  -c {{basedir}}{{project_name}} up
     ignore_errors: yes
   - name: Start Application
     service: name=portal state=restarted
