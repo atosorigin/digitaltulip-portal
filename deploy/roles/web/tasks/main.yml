@@ -13,6 +13,8 @@
       - node
       - npm
       - git
+      - python
+      - libselinux-python
     when: ansible_os_family == 'RedHat'
 
   - name: Create group
