@@ -52,7 +52,7 @@
     template: src=portal.conf dest=/etc/init/portal.conf
     when: ansible_os_family == 'Debian'
   - name: Add init.d conf
-    template: src=portal_redhat.service dest=/etc/init.d/portal
+    template: src=portal_redhat.service dest=/etc/init.d/portal mode=u+rwx
     when: ansible_os_family == 'RedHat'
 
   - name: Add env specific migrations
