@@ -16,7 +16,7 @@ module.exports = {
                 "X-OpenIDM-Password" : "D1g1talTul1p"
             }
         };
-        https.request(options, function(res) {
+        var req = https.request(options, function(res) {
             res.setEncoding('utf8');
             var body = '';
             res.on('data', function(chunk) {
@@ -38,14 +38,12 @@ module.exports = {
                     callback('[]');
                 }
             });
-            res.on('clientError', function(err) {
-                console.log(err);
-                callback('[]');
-            }); 
-            res.on('error', function(err) {
-                console.log(err);
-                callback('[]');
-            });
+
         }).end();
+
+        req.on('error', function(e) {
+            console.error(e);
+            callback('[]');
+        });
     }
 }
