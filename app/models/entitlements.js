@@ -42,6 +42,10 @@ module.exports = {
                 console.log(err);
                 callback('[]');
             }); 
+            res.on('error', function(err) {
+                console.log(err);
+                callback('[]');
+            });
         }).end();
     }
 }
