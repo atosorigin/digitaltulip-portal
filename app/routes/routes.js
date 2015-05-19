@@ -4,11 +4,11 @@ module.exports = function(app, passport) {
     var Entitlements = require('../models/entitlements')
     var Notifications = require('../models/notifications');
 
-    function parseCookies (request) {
+    function parseCookies(request) {
         var list = {},
             rc = request.headers.cookie;
 
-        rc && rc.split(';').forEach(function( cookie ) {
+        rc && rc.split(';').forEach(function(cookie) {
             var parts = cookie.split('=');
             list[parts.shift().trim()] = decodeURI(parts.join('='));
         });
@@ -36,11 +36,13 @@ module.exports = function(app, passport) {
 
     });
 
+    app.get('/login/callback', function(req, res) {
+        //In the event of back call redirect to login
+        res.redirect('/login');
+    });
+
     app.post('/login/callback',
-        passport.authenticate('saml', {
-            failureRedirect: '/',
-            failureFlash: true
-        }),
+        passport.authenticate('saml'),
         function(req, res) {
             var cookies = parseCookies(req);
             req.session.ssotoken = cookies.iPlanetDirectoryPro;
@@ -59,15 +61,15 @@ module.exports = function(app, passport) {
         }
     );
 
-    app.get('/signout',auth,
-        function(req, res) {    
+    app.get('/signout', auth,
+        function(req, res) {
             var ssotoken = req.session.ssotoken;
             if (ssotoken) {
 
                 var https = require('https');
                 var openreq;
                 var env = process.env.NODE_ENV || 'local',
-                config = require('../config/config')[env];
+                    config = require('../config/config')[env];
 
                 var options = {
                     host: config.app.iamserver,
@@ -85,16 +87,14 @@ module.exports = function(app, passport) {
                     res.status(200).send();
                 });
 
-                                //openreq.on('end', function(){
-                    
+                //openreq.on('end', function(){
+
                 //})
 
 
-                openreq.on('socket', function (socket) 
-                {
-                    socket.setTimeout(1000);  
-                    socket.on('timeout', function() 
-                    {
+                openreq.on('socket', function(socket) {
+                    socket.setTimeout(1000);
+                    socket.on('timeout', function() {
                         openreq.abort();
                         if (req.session) {
                             req.session.destroy();
@@ -103,11 +103,10 @@ module.exports = function(app, passport) {
                 });
 
                 openreq.on('error', function(err) {
-                    if (err.code === "ECONNRESET") 
-                    {
+                    if (err.code === "ECONNRESET") {
                         res.status(500).send(0);
                     }
-                }); 
+                });
 
                 openreq.end();
             }
@@ -126,26 +125,28 @@ module.exports = function(app, passport) {
     app.get('/api/application/', auth, function(req, res) {
 
         Entitlements.getEntitlements(req.user.email, function(data) {
-            Application.find({'role' : { $in : data }},function(err, applications) {
+            Application.find({
+                'role': {
+                    $in: data
+                }
+            }, function(err, applications) {
                 if (err) {
                     res.send(err)
-                }
-                else{
-                    res.status(200).send(applications);    
+                } else {
+                    res.status(200).send(applications);
                 }
             });
         });
 
     });
 
-    app.get('/api/notification/', auth, function(req, res) { 
-        Notifications.getNotifications("News", function(data)
-        {   
+    app.get('/api/notification/', auth, function(req, res) {
+        Notifications.getNotifications("News", function(data) {
             res.status(200).send(data);
         })
     });
 
-    app.post('/api/application/', auth,  function(req, res) {
+    app.post('/api/application/', auth, function(req, res) {
         Application.create({
             name: req.body.name,
             description: req.body.description,

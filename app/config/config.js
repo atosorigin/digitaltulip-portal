@@ -10,7 +10,7 @@ module.exports = {
                 host : "localhost",
                 port : "27017"
             },
-            iamserver : "iamthewalrus.dev.digitaltulip.net"
+            iamserver : "iam.dev.digitaltulip.net"
 
         },
         passport: {
