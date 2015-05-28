@@ -1,15 +1,27 @@
 // server.js
 // set up ===================
+
+//var http = require('http');
+// added for ssl
+var fs = require('fs');
 var http = require('http');
+var https = require('https');
+var privateKey = fs.readFileSync('cert/mykey.key');
+var certificate = fs.readFileSync('cert/certificate.crt');
+var credentials = { key: privateKey, cert: certificate};
+
 var express = require('express');
 var app = express();
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+
 var cookieParser = require('cookie-parser')
 var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var passport = require('passport');
-var session = require('express-session')
+var session = require('express-session');
 
 // configuration =================
 var env = process.env.NODE_ENV || 'local',
@@ -55,8 +67,15 @@ app.use(passport.session());
 require("./app/routes/routes.js")(app, passport)
 
 // listen (start app with node server.js) ======================================
-app.listen(config.app.port);
-console.log("App listening on port " + config.app.port);
+//app.listen(config.app.port);
+//httpServer.listen(80);
+//httpsServer.listen(443);
+
+httpServer.listen(config.app.httpPort);
+httpsServer.listen(config.app.httpsPort);
+
+console.log("App listening on port " + config.app.httpPort);
+console.log("App listening on secure port " + config.app.httpsPort);
 
 // routes ======================================================================
 
