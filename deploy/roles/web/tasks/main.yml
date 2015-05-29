@@ -1,6 +1,7 @@
 ---    
   - name: Stop Application
     service: name=portal state=stopped
+    ignore_errors: no
 
   - name: Execute apt-get
     apt: name={{item}} state=present
