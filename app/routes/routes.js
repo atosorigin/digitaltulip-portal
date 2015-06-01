@@ -42,7 +42,7 @@ module.exports = function(app, passport) {
     });
 
     app.post('/login/callback',
-        passport.authenticate('saml'),
+        passport.authenticate('saml',{failureRedirect: '/login' }),
         function(req, res) {
             var cookies = parseCookies(req);
             req.session.ssotoken = cookies.iPlanetDirectoryPro;
