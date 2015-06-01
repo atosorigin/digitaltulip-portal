@@ -74,5 +74,29 @@ module.exports = {
                 cert: fs.readFileSync('./cert/forgerock.pem', 'utf-8')
             }
         }
+    },
+    awsdemo : {
+        app : {
+            name : 'Passport SAML strategy example',
+            port : process.env.PORT || 8080,
+            database : {
+                name : "digitaltulip",
+                host : "localhost",
+                port : "27017"
+            },
+            iamserver : "iam.digitaltulip.net"
+
+        },
+        passport: {
+            strategy : 'saml',
+            saml : {
+                path : '/login/callback',
+                entryPoint : 'https://iam.digitaltulip.net/openam/SSORedirect/metaAlias/ActiveDirectory/idp',
+                logoutUrl : 'https://iam.digitaltulip.net/openam/IDPSloRedirect/metaAlias/ActiveDirectory/idp',
+                issuer : 'passport-saml',
+                callbackUrl: 'https://portal.digitaltulip.net/login/callback',
+                cert: fs.readFileSync('./cert/forgerock.pem', 'utf-8')
+            }
+        }
     }
 }
