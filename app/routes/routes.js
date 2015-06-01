@@ -41,7 +41,24 @@ module.exports = function(app, passport) {
         res.redirect('/login');
     });
 
-    app.post('/login/callback',
+    app.post('/login/callback', function(req,res,next){
+        passport.authenticate('saml', function(err,user,info){
+            if (err){
+                console.log(err);
+                return res.redirect('/login');   
+            } 
+            req.logIn(user, function(err) {
+                if (err) { return next(err); }
+                var cookies = parseCookies(req);
+                req.session.ssotoken = cookies.iPlanetDirectoryPro;
+                res.user = user
+                return res.redirect('/');
+            });
+            
+        })(req,res,next);
+    });
+
+    /*app.post('/login/callback',
         passport.authenticate('saml',{failureRedirect: '/login' }),
         function(req, res) {
             var cookies = parseCookies(req);
@@ -49,7 +66,7 @@ module.exports = function(app, passport) {
             res.user = req.user
             res.redirect('/');
         }
-    );
+    );*/
 
     app.get('/login',
         passport.authenticate('saml', {
