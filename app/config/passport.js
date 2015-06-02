@@ -33,8 +33,6 @@ module.exports = function(passport, config) {
                 });
             });
 
-
-
     passport.serializeUser(function(user, done) {
         done(null, user);
     });

@@ -25,6 +25,9 @@ module.exports = function(app, passport) {
     };
 
     app.get('/', function(req, res) {
+        var os = require("os");
+        
+        console.log(os.hostname());
         if (!req.isAuthenticated()) {
             res.redirect('/login');
 
