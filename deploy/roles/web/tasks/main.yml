@@ -64,8 +64,19 @@
   - name: Run migrations down
     command : node {{basedir}}{{project_name}}/node_modules/mongo-migrate/index.js -runmm  -c {{basedir}}{{project_name}} down
     ignore_errors: yes
+    when: ansible_os_family == 'RedHat'
   - name: Run migrations up
     command : node {{basedir}}{{project_name}}/node_modules/mongo-migrate/index.js -runmm  -c {{basedir}}{{project_name}} up
     ignore_errors: yes
+    when: ansible_os_family == 'RedHat'
+  - name: Run migrations down
+    command : nodejs {{basedir}}{{project_name}}/node_modules/mongo-migrate/index.js -runmm  -c {{basedir}}{{project_name}} down
+    ignore_errors: yes
+    when: ansible_os_family == 'Debian'
+  - name: Run migrations up
+    command : nodejs {{basedir}}{{project_name}}/node_modules/mongo-migrate/index.js -runmm  -c {{basedir}}{{project_name}} up
+    ignore_errors: yes
+    when: ansible_os_family == 'Debian'
+
   - name: Start Application
     service: name=portal state=restarted
