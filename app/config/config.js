@@ -29,7 +29,8 @@ module.exports = {
     dev : {
         app : {
             name : 'Passport SAML strategy example',
-            port : process.env.PORT || 8080,
+            httpPort : process.env.PORT || 8080,
+            httpsPort : 8443,
             database : {
                 name : "digitaltulip",
                 host : "localhost",
@@ -54,7 +55,8 @@ module.exports = {
     demo : {
         app : {
             name : 'Passport SAML strategy example',
-            port : process.env.PORT || 8080,
+            httpPort : process.env.PORT || 8080,
+            httpsPort : 8443,
             database : {
                 name : "digitaltulip",
                 host : "localhost",
