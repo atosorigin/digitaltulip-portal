@@ -15,6 +15,7 @@ module.exports = function(passport, config) {
     }, function(profile, done) {
         User.findOne({email : profile.nameID.toLowerCase()}, function(err, oldUser){
                     if(oldUser){
+                        oldUser.isDeployed = false;
                         done(null,oldUser);
                     }else{
                         var newUser = new User({
@@ -27,6 +28,7 @@ module.exports = function(passport, config) {
                             lastName:    profile.sn
                         }).save(function(err,newUser){
                             if(err) throw err;
+                            newUser.isDeployed = false;
                             done(null, newUser);
                         });
                     }

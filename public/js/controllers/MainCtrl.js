@@ -1,6 +1,7 @@
-angular.module('MainCtrl', []).controller('MainController', ['$scope', '$window', '$http', '$interval', '$timeout', 'application', 'notification', function($scope, $window, $http, $interval, $timeout, application, notification) {
+angular.module('MainCtrl', []).controller('MainController', ['$scope', '$window', '$http', '$interval', '$timeout', 'application', 'notification', 'authService', function($scope, $window, $http, $interval, $timeout, application, notification, authService) {
 
     var dragging = false;
+    var isDeployed;
     $scope.displayDate = new Date();
 
     $scope.loading = true;
@@ -9,12 +10,22 @@ angular.module('MainCtrl', []).controller('MainController', ['$scope', '$window'
     // when landing on the page, get all todos and show them
     // use the service to get all the todos
     //$scope.applications = {};
-    application.get()
-        .success(function(data) {
+    authService.currentUser()
+        .success(function(user) {
+            isDeployed = user.isDeployed;
+            console.log(isDeployed);
+            application.get()
+            .success(function(data) {
 
-            $scope.applications = data;
-            $scope.loading = false;
+                $scope.applications = data;
+                $scope.loading = false;
+              });
+          
         });
+
+
+
+
 
     //$scope.notifications = {};
     $scope.moveLeft = function() {
@@ -103,6 +114,21 @@ angular.module('MainCtrl', []).controller('MainController', ['$scope', '$window'
                 } // optional callback fired when item is finished draggin
         }
     };
+	
+	$scope.getColour = function(app){
+	
 
+            if(isDeployed){
+            
+                return app.altbgcolour;
+            
+            }else{
+            
+                return app.bgcolour;
+            
+            }
+         
+                     
+	}
 
 }]);

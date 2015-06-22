@@ -9,7 +9,7 @@
             </div>
     <h1>{{displayDate | date:'EEEE dd MMMM yyyy'}}</h1>
     <div gridster="gridsterOpts" class='gridsterOpts'>
-        <li gridster-item="obj" ng-repeat="obj in applications" ng-style="{'background-color': '{{obj.bgcolour}}'}" class="tile">
+        <li gridster-item="obj" ng-repeat="obj in applications" ng-style="{'background-color': '{{getColour(obj)}}'}" class="tile">
             <a href="{{obj.url}}" target="{{obj.name}}">
                 <img src="{{obj.img}}" class="img-responsive" />
                 <div class="appname">{{obj.name}}</div>

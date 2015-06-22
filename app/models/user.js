@@ -7,7 +7,8 @@ module.exports = mongoose.model('user', {
 	firstName: 		String,
 	lastName: 		String,
 	email: 			String,
-	image: 			String //imgage: { data: Buffer, contentType: String },
+	image: 			String,
+	isDeployed:		Boolean //imgage: { data: Buffer, contentType: String },
 	//image: { data: Buffer, contentType: String }
 
 });
