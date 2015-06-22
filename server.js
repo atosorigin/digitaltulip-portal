@@ -71,7 +71,7 @@ require("./app/routes/routes.js")(app, passport)
 //httpServer.listen(80);
 //httpsServer.listen(443);
 
-//httpServer.listen(config.app.httpPort);
+httpServer.listen(config.app.httpPort);
 httpsServer.listen(config.app.httpsPort);
 
 console.log("App listening on port " + config.app.httpPort);
