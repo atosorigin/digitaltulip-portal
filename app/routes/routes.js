@@ -2,7 +2,7 @@ module.exports = function(app, passport) {
 
     var Application = require('../models/application');
     var Entitlements = require('../models/entitlements')
-    var Notifications = require('../models/notifications');
+    var Notifications = require('../models/notifications_mod');
 
     function parseCookies(request) {
         var list = {},
