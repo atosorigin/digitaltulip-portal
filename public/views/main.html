@@ -3,7 +3,8 @@
                 <div class="viewport">  
                         <span>Latest News</span>
                         
-                    <div ng-repeat="notification in notifications" class="boxtext"><div><a href="https://cloudcanopyatospov.service-now.com/nav_to.do?uri=kb_view.do?sys_kb_id={{notification.sys_id}}" target="_new">{{ notification.short_description }}</a></div></div>
+                    <div ng-repeat="notification in notifications" class="boxtext"><div><a href="{{notification.author.link }}"
+                     target="_new">{{ notification.short_description }}</a></div></div>
 
                 </div>
             </div>
