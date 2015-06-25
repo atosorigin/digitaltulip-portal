@@ -13,22 +13,23 @@ module.exports = function(passport, config) {
         callbackUrl: config.passport.saml.callbackUrl,
         cert: config.passport.saml.cert 
     }, function(profile, done) {
+        var isDeployed = (profile.isDeployed === 'TRUE');
         User.findOne({email : profile.nameID.toLowerCase()}, function(err, oldUser){
                     if(oldUser){
-                        oldUser.isDeployed = true;
+                        oldUser.isDeployed = isDeployed;
                         done(null,oldUser);
                     }else{
                         var newUser = new User({
-                           
                             id :         profile.uid,
                             email :      profile.nameID.toLowerCase(),
                             name :       profile.displayName,
                             displayName: profile.cn,
                             firstName:   profile.givenName,
-                            lastName:    profile.sn
+                            lastName:    profile.sn,
+                            isDeployed:  isDeployed
                         }).save(function(err,newUser){
                             if(err) throw err;
-                            newUser.isDeployed = true;
+                            newUser.isDeployed = isDeployed;
                             done(null, newUser);
                         });
                     }
