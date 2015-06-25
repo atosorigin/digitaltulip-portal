@@ -16,7 +16,7 @@ exports.up = function(db, next){
         coll.insert({ name: "Security Management", description : 'Data protection for dynamic enterprises', img:'/img/Security_256.png', url:'http://varmour.atos.io:8000', bgcolour: "#0072C6" , altbgcolour: "#A4B167" , role: "managed/role/securitymanagementusers"},function(err, result) {});
         coll.insert({ name: "Cost Optimisation", description : 'Optimise IaaS costs in Public Cloud', img: '/img/Cost_Opt_256.png', url: 'https://app.cloudyn.com/dashboard.html', bgcolour:"#EB3C00", altbgcolour:"#E2CF67", role: "managed/role/costoptimisationusers"},function(err, result) {});
         coll.insert({ name: "Self Help", description : 'Resolve your IT problems with our self help guides', img: '/img/Selfhelp_option2_256.png', url: 'https://cloudcanopyatospov.service-now.com/nav_to.do?uri=services/get_help.do', bgcolour:"#ffb900" , altbgcolour: "#808080", role: "openidm-authorized"},function(err, result) {});
-        coll.insert({ name: "Google Earth", description : 'Get Mapping Information', img: '/img/Google_Earth_256.png', url: 'http://maps.google.com', bgcolour: "#EB3C00", altbgcolour: "#D8CDCB", role: "managed/role/googleearthusers"},function(err, result) {});
+        coll.insert({ name: "Google Earth", description : 'Get Mapping Information', img: '/img/Google_Earth_256.png', url: 'http://maps.google.com', bgcolour: "#EB3C00", altbgcolour: "#D8CDCB", role: "managed/role/gearthuser"},function(err, result) {});
         next();
     });
     
@@ -36,6 +36,7 @@ exports.down = function(db, next){
     coll.remove({name: "Self Help"},function(err, result) {});
     coll.remove({name: "Cost Optimisation"},function(err, result) {});
     coll.remove({name: "Security Management"},function(err, result) {});
+    coll.remove({name: "Google Earth"},function(err, result) {});
     next();
   });
 };
