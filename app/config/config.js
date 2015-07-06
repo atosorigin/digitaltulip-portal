@@ -26,7 +26,7 @@ module.exports = {
             }
         }
     },
-    cip-dev : {
+    'cip-dev' : {
         app : {
             name : 'Passport SAML strategy example',
             httpPort : 8080,
