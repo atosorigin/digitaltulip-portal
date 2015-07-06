@@ -11,17 +11,42 @@ module.exports = {
                 host : "localhost",
                 port : "27017"
             },
-            iamserver : "iam.dev.digitaltulip.net"
+            iamserver : "iam.cip-dev.canopy-cloud.com"
 
         },
         passport: {
             strategy : 'saml',
             saml : {
                 path : '/login/callback',
-                entryPoint : 'https://iam.dev.digitaltulip.net/openam/SSORedirect/metaAlias/ActiveDirectory/idp',
-                logoutUrl : 'https://iam.dev.digitaltulip.net/openam/IDPSloRedirect/metaAlias/ActiveDirectory/idp',
+                entryPoint : 'https://iam.cip-dev.canopy-cloud.com/openam/SSORedirect/metaAlias/ActiveDirectory/idp',
+                logoutUrl : 'https://iam.cip-dev.canopy-cloud.com/openam/IDPSloRedirect/metaAlias/ActiveDirectory/idp',
                 issuer : 'passport-saml',
-                callbackUrl: 'https://portal.dev.digitaltulip.net/login/callback',
+                callbackUrl: 'https://portal.cip-dev.canopy-cloud.com/login/callback',
+                cert: fs.readFileSync('./cert/forgerock.pem', 'utf-8')
+            }
+        }
+    },
+    cip-dev : {
+        app : {
+            name : 'Passport SAML strategy example',
+            httpPort : 80,
+            httpsPort : 443, 
+            database : {
+                name : "digitaltulip",
+                host : "localhost",
+                port : "27017"
+            },
+            iamserver : "iam.cip-dev.canopy-cloud.com"
+
+        },
+        passport: {
+            strategy : 'saml',
+            saml : {
+                path : '/login/callback',
+                entryPoint : 'https://iam.cip-dev.canopy-cloud.com/openam/SSORedirect/metaAlias/ActiveDirectory/idp',
+                logoutUrl : 'https://iam.cip-dev.canopy-cloud.com/openam/IDPSloRedirect/metaAlias/ActiveDirectory/idp',
+                issuer : 'passport-saml',
+                callbackUrl: 'https://portal.cip-dev.canopy-cloud.com/login/callback',
                 cert: fs.readFileSync('./cert/forgerock.pem', 'utf-8')
             }
         }
