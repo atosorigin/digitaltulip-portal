@@ -29,8 +29,8 @@ module.exports = {
     cip-dev : {
         app : {
             name : 'Passport SAML strategy example',
-            httpPort : 80,
-            httpsPort : 443, 
+            httpPort : 8080,
+            httpsPort : 8443, 
             database : {
                 name : "digitaltulip",
                 host : "localhost",
