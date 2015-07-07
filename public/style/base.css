@@ -1,5 +1,5 @@
 .navbar-default {
-    background-color: white;
+    background-color: #f6f5f5;
     border-color: white;
     border-radius: 0px;
     margin-bottom: 0px;
@@ -13,6 +13,7 @@
 
 .content {
     margin: 10px;
+    background-color: #f6f5f5;
 }
 
 .navbar-default .navbar-nav > .dropdown > a {
@@ -205,4 +206,12 @@
 
 .boxtext a {
     color: white;
+}
+
+html {
+    background-color: #f6f5f5;
+}
+
+body {
+    background-color: #f6f5f5;
 }
