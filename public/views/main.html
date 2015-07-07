@@ -1,7 +1,7 @@
   <div class="col-md-8 col-md-push-4 col-sm-8 col-sm-push-4">
               <div class="ticker blue">
                 <div class="viewport">  
-                        <span>Latest News</span>
+                        <strong>Latest News - </strong>
                         
                     <div ng-repeat="notification in notifications" class="boxtext"><div><a href="https://cloudcanopyatospov.service-now.com/nav_to.do?uri=kb_view.do?sys_kb_id={{notification.sys_id}}" target="_new">{{ notification.short_description }}</a></div></div>
 
@@ -11,7 +11,7 @@
     <div gridster="gridsterOpts" class='gridsterOpts'>
         <li gridster-item="obj" ng-repeat="obj in applications" ng-style="{'background-color': '{{obj.bgcolour}}'}" class="tile">
             <a href="{{obj.url}}" target="{{obj.name}}">
-                <img src="http://canopy-cloud.com/sites/all/themes/canopytheme/images/logo.png" alt="workspace" class="img-responsive" />
+                <img src="{{obj.img}}" class="img-responsive" />
                 <div class="appname">{{obj.name}}</div>
                 <appdesc>
                     <p>{{obj.description}}</p>
@@ -23,7 +23,7 @@
 </div>
 <div class="col-md-4 col-md-pull-8 col-sm-4 col-sm-pull-8">
     <div class="header">
-        <!--<img src="http://canopy-cloud.com/sites/all/themes/canopytheme/images/logo.png" alt="workspace" class="img-responsive" />-->
+        <img src="http://canopy-cloud.com/sites/all/themes/canopytheme/images/logo.png" alt="workspace" class="img-responsive" />
     </div>
     <br/>
     <div class="list-group">
