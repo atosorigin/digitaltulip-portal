@@ -226,6 +226,7 @@ body {
     background-color: #fff;
     z-index: 9;
     border-top: 1px solid #a5a4a4;
+    margin-top:100%;
 }
 
 .logos-partenaires{
