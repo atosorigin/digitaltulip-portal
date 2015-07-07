@@ -32,6 +32,10 @@
     color: grey;
 }
 
+.navbar-brand {
+    margin-left: 200px;
+}
+
 .controls {
     margin-bottom: 20px;
 }
