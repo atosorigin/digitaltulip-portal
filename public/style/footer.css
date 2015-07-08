@@ -1,6 +1,7 @@
-html { height:100%;
+html { min-height:100%;
 background-color:#F2F1F1;
 font-family: Verdana,Arial,sans-serif;
+ margin:0px; padding:0px;
 }
 
 a:link {
@@ -8,17 +9,17 @@ text-decoration: none;
 color: black;
 }
 
-body { height:100%;
-padding-bottom:250px;
+body { min-height:100%;
+ margin:0px; padding:0px;
 background-color:#F2F1F1;
 }
 
 .footer-wrapper {
 
 border-top: 1px solid grey;
-height:250px;
+height:285px;
 bottom:0px;
-position:absolute;
+position:relative;
 background-color:#FFFFFF;
 width:100%;
 
