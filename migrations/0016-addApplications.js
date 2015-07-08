@@ -16,7 +16,7 @@ exports.up = function(db, next){
         coll.insert({ name: "Security Management", description : 'Data protection for dynamic enterprises', img:'/img/Security_256.png', url:'http://varmour.atos.io:8000', bgcolour: "#0072C6" , role: "managed/role/securitymanagementusers"},function(err, result) {});
         coll.insert({ name: "Cost Optimisation", description : 'Optimise IaaS costs in Public Cloud', img: '/img/Cost_Opt_256.png', url: 'https://app.cloudyn.com/dashboard.html', bgcolour:"#EB3C00", role: "managed/role/costoptimisationusers"},function(err, result) {});
         coll.insert({ name: "Self Help", description : 'Resolve your IT problems with our self help guides', img: '/img/Selfhelp_option2_256.png', url: 'https://cloudcanopyatospov.service-now.com/nav_to.do?uri=services/get_help.do', bgcolour:"#ffb900" , role: "openidm-authorized"},function(err, result) {});
-        coll.insert({ name: "Compose", description : 'The Canopy\'s IaaS Orchestratration Tool', img: '/img/Compose.png', url: 'https://demo.compose.canopy-cloud.com/', bgcolour:"#006398", role: "openidm-authorized"},function(err, result) {});
+        coll.insert({ name: "Compose", description : 'The Canopy\'s IaaS Orchestratration Tool', img: '/img/Compose_blue.png', url: 'https://demo.compose.canopy-cloud.com/', bgcolour:"#006398", role: "openidm-authorized"},function(err, result) {});
         next();
     });
     
