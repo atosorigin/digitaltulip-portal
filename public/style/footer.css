@@ -17,7 +17,7 @@ background-color:#F2F1F1;
 .footer-wrapper {
 
 border-top: 1px solid grey;
-height:285px;
+height:90px;
 bottom:0px;
 position:relative;
 background-color:#FFFFFF;
@@ -29,6 +29,7 @@ width:100%;
 display:inline-block;
   float: right;
   padding: 10px;
+  margin-right:20px;
 }
 
 .footer-social li{
@@ -43,10 +44,14 @@ font-size: 13px;
 border-top: 1px solid grey;
   font-size: 13px;
   line-height: 54px;
+  text-align: left;
+
+
 }
 
 .footer-links {
-margin-left:311px;
+margin-left:20px;
+float:left;
 }
 
 .companys {
