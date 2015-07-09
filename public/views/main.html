@@ -1,3 +1,9 @@
+  <script>
+    function tileConfirmation() {
+        alert("Are you sure?");
+    }
+  </script>
+
   <div class="col-md-8 col-md-push-4 col-sm-8 col-sm-push-4">
               <div class="ticker blue_gradient">
                 <div class="viewport">  
@@ -10,7 +16,7 @@
     <h1>{{displayDate | date:'EEEE dd MMMM yyyy'}}</h1>
     <div gridster="gridsterOpts" class='gridsterOpts'>
         <li gridster-item="obj" ng-repeat="obj in applications" ng-style="{'background-color': '{{obj.bgcolour}}'}" class="tile">
-            <a href="{{obj.url}}" target="{{obj.name}}">
+            <a onclick="tileConfirmation();" target="{{obj.name}}">
                 <img src="{{obj.img}}" class="img-responsive" />
                 <div class="appname">{{obj.name}}</div>
                 <appdesc>
