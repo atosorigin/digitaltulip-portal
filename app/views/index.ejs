@@ -37,6 +37,20 @@
 
     <link rel="icon" type="image/ico" href="http://canopy-cloud.com/sites/default/files/favicon.ico"/>
     
+    <script>
+
+    $(window).load(function(){
+        el = document.getElementById("cloudFabric");
+        if (el) {
+        el.addEventListener("click", function(){ alert("Are you sure?"); });
+        }
+        else {
+            alert("cloudFabric element does not exist");
+        }
+    });
+
+    </script>
+    
 </head>
 
 
@@ -92,16 +106,3 @@
 </body>
 </html>
 
-<script>
-
-$(window).load(function(){
-    el = document.getElementById("cloudFabric");
-    if (el) {
-    el.addEventListener("click", function(){ alert("Are you sure?"); });
-    }
-    else {
-        alert("cloudFabric element does not exist");
-    }
-});
-
-</script>
