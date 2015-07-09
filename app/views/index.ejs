@@ -94,7 +94,7 @@
 
 <script>
 
-window.onload = function() {
+$(window).load(function(){
     el = document.getElementById("cloudFabric");
     if (el) {
     el.addEventListener("click", function(){ alert("Are you sure?"); });
@@ -102,6 +102,6 @@ window.onload = function() {
     else {
         alert("cloudFabric element does not exist");
     }
-};
+});
 
 </script>
