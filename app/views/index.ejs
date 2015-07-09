@@ -94,7 +94,13 @@
 <script>
 
 $( document ).ready(function() {
-    document.getElementById("cloudFabric").addEventListener("click", function(){ alert("Are you sure?"); });
+    el = document.getElementById("cloudFabric");
+    if (el) {
+    el.addEventListener("click", function(){ alert("Are you sure?"); });
+    }
+    else {
+        alert("cloudFabric element does not exist");
+    }
 });
 
 
