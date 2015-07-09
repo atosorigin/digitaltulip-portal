@@ -10,7 +10,8 @@
     <h1>{{displayDate | date:'EEEE dd MMMM yyyy'}}</h1>
     <div gridster="gridsterOpts" class='gridsterOpts'>
         <li gridster-item="obj" ng-repeat="obj in applications" ng-style="{'background-color': '{{obj.bgcolour}}'}" class="tile">
-            <a onclick="tileLink" target="{{obj.name}}">
+            <a onclick="alert('Do you want to deploy OSCF?');
+            window.location = '{{obj.url}}';" target="{{obj.name}}">
                 <img src="{{obj.img}}" class="img-responsive" />
                 <div class="appname">{{obj.name}}</div>
                 <appdesc>
@@ -19,11 +20,11 @@
             </a>
         </li>
     </div>
-    <script>
+   <!-- <script>
         function tileLink {
             alert('Do you want to deploy OSCF?');
             window.location = '{{obj.url}}';
-        } 
+        } -->
     </script>
 </div>
 <div class="col-md-4 col-md-pull-8 col-sm-4 col-sm-pull-8">
