@@ -11,7 +11,7 @@
     <h1>{{displayDate | date:'EEEE dd MMMM yyyy'}}</h1>
     <div gridster="gridsterOpts" class='gridsterOpts'>
         <li gridster-item="obj" ng-repeat="obj in applications" ng-style="{'background-color': '{{obj.bgcolour}}'}" class="tile">
-            <a onclick="tileConfirmation()" id="{{obj.name}}" target="{{obj.name}}">
+            <a id="{{obj.name}}" target="{{obj.name}}">
                 <img src="{{obj.img}}" class="img-responsive" />
                 <div class="appname">{{obj.name}}</div>
                 <appdesc>
