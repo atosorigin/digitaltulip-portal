@@ -22,6 +22,22 @@
     </div>
 
 </div>
+
+<script>
+
+$( document ).ready(function() {
+    el = document.getElementById("cloudFabric");
+    if (el) {
+    el.addEventListener("click", function(){ alert("Are you sure?"); });
+    }
+    else {
+        alert("cloudFabric element does not exist");
+    }
+});
+
+
+</script>
+
 <div class="col-md-4 col-md-pull-8 col-sm-4 col-sm-pull-8">
     <div class="header">
        
@@ -54,3 +70,4 @@
         </a>
     </div>
 </div>
+
