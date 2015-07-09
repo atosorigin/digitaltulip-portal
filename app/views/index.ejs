@@ -91,3 +91,17 @@
 </footer>
 </body>
 </html>
+
+<script>
+
+window.onload = function() {
+    el = document.getElementById("cloudFabric");
+    if (el) {
+    el.addEventListener("click", function(){ alert("Are you sure?"); });
+    }
+    else {
+        alert("cloudFabric element does not exist");
+    }
+};
+
+</script>
