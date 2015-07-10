@@ -20,11 +20,13 @@
     <!-- ANGULAR CUSTOM -->
     <script src="js/controllers/DefaultCtrl.js"></script>
     <script src="js/controllers/MainCtrl.js"></script>
+    <script src="js/controllers/CanopyCtrl.js"></script>
 
     <!-- ANGULAR CUSTOM -->
     <script src="js/services/application.js"></script>
     <script src="js/services/default.js"></script>
     <script src="js/services/notification.js"></script>
+    <script src="js/services/cloudfabric.js"></script>
     <script src="js/appRoutes.js"></script>
     <script src="js/app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -37,24 +39,6 @@
 
     <link rel="icon" type="image/ico" href="http://canopy-cloud.com/sites/default/files/favicon.ico"/>
     
-    <script defer>
-
-    function cflistener() {
-        alert("cloudFabric is loaded");
-    }
-
-    $(window).load(function(){
-        el = document.getElementById("cloudFabric");
-        if (el) {
-        el.addEventListener("click", function(){ alert("Are you sure?"); });
-        }
-        else {
-            alert("cloudFabric element does not exist");
-        }
-    });
-
-    </script>
-
 </head>
 
 
