@@ -201,7 +201,7 @@ module.exports = function(app, passport) {
           "Authorization" : auth
         }
       },function (error, response, body) {
-        res.json(body);
+        res.send(body);
       });
     });
 
