@@ -5,7 +5,6 @@ exports.up = function(db, next){
     db.createCollection("applications", function(err,coll){
 
         coll.insert({ name: "Office 365", description : 'Microsoft\'s online messaging and collaboration platform', img:'/img/Office_256.png', url:'https://login.microsoftonline.com/PostToIDP.srf?msg=AuthnReq&realm=MS.DIGITALTULIP.NET&wa=wsignin1.0&wtrealm=urn:federation:MicrosoftOnline&wctx=bk%3D1427361385%26LoginOptions%3D3', bgcolour: "#0072C6", role: ["managed/role/o365user"]},function(err, result) {});
-        coll.insert({ name: "Google Apps", description : 'Google\'s online messaging and collaboration platform', img:'/img/gmail_256.png', url:'http://gmail.digitaltulip.net', bgcolour: "#0072C6" , role: ["managed/role/gappsuser"]  },function(err, result) {});
         coll.insert({ name: "Manage Services", description : 'Online IT Service Management Tool', img:'/img/Service_mgt_256.png', url:'https://cloudcanopyatospov.service-now.com' , bgcolour: "#EB3C00",  role: ["managed/role/snowselfserveuser","managed/role/snoworchestrationuser", "managed/role/snowapprover"]},function(err, result) {});
         coll.insert({ name: "Performance management", description : 'Online Application and Platform Monitoring', img:'/img/Performance_mgt_256.png', url:'http://appd.atos.io/controller' , bgcolour: "#ffb900" ,role: "managed/role/perfmanagementusers" },function(err, result) {});
         coll.insert({ name: "Customer Relationship Management", description : 'Cloud provided CRM platform', img:'/img/Salesforce_256.png', url:'https://login.salesforce.com', bgcolour: "#969696"  ,role: "managed/role/crmusers" },function(err, result) {});
@@ -18,6 +17,7 @@ exports.up = function(db, next){
         coll.insert({ name: "Self Help", description : 'Resolve your IT problems with our self help guides', img: '/img/Selfhelp_option2_256.png', url: 'https://cloudcanopyatospov.service-now.com/nav_to.do?uri=services/get_help.do', bgcolour:"#ffb900" , role: "openidm-authorized"},function(err, result) {});
         coll.insert({ name: "Compose", description : 'Canopy\'s IaaS Orchestratration Tool', img: '/img/Compose_blue.png', url: 'https://demo.compose.canopy-cloud.com/', bgcolour:"#006398", role: "openidm-authorized"},function(err, result) {});
         coll.insert({ name: "Cloud Fabric", description : 'Canopy\'s PaaS Solution', img: '/img/Fabric.png', url: '/#/cloud-fabric', bgcolour:"#006398", role: "openidm-authorized"},function(err, result) {});
+        coll.insert({ name: "Google Apps", description : 'Google\'s online messaging and collaboration platform', img:'/img/gmail_256.png', url:'http://gmail.digitaltulip.net', bgcolour: "#0072C6" , role: ["openidm-authorized"]  },function(err, result) {});
         next();
     });
     
