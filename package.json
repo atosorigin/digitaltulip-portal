@@ -33,9 +33,10 @@
     "morgan": "1.5.1",
     "passport": "0.2.1",
     "passport-saml": "latest",
-    "mongo-migrate" : "git://github.com/LeeGathercole/mongo-migrate.git",
-    "https" : "latest",
-    "mongodb" : "latest",
-    "serve-favicon" : "2.2.0"
+    "mongo-migrate": "git://github.com/LeeGathercole/mongo-migrate.git",
+    "https": "latest",
+    "mongodb": "latest",
+    "serve-favicon": "2.2.0",
+    "request": "~2.58.0"
   }
 }
