@@ -1,4 +1,4 @@
-angular.module('XaaP', ['ngRoute', 'DefaultCtrl', 'MainCtrl', 'appRoutes', 'default', 'application', 'gridster', 'notification'])
+angular.module('XaaP', ['ngRoute', 'DefaultCtrl', 'MainCtrl', 'CanopyCtrl', 'appRoutes', 'default', 'application', 'cloudfabric', 'gridster', 'notification'])
 .config(function($locationProvider, $httpProvider){
     $httpProvider.interceptors.push(function($q, $window) {
         return {

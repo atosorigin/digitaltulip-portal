@@ -184,5 +184,9 @@ module.exports = function(app, passport) {
 
     });
 
+    app.get('/api/cloudfabric/', auth, function(req, res) {
+        var x = {'username':'dfkjdkfdkfj', 'password' : 'sfdsfdsfdsf'};
+        res.json(x);
 
+    });
 };
