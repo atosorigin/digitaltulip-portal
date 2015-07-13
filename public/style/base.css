@@ -216,3 +216,20 @@ body {
     background-color: #F2F1F1;
 }
 
+.canopy-btn {
+    color: white;
+    float: left;
+    margin-left: 6%;
+    margin-top: 12px;
+    background-color: #006DAB;
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.canopy-btn:hover {
+    opacity: 50%;
+    background-color: white;
+    color: #006DAB;
+    border: 1px solid #006DAB;
+}

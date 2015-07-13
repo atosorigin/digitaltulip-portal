@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
   <div class="col-md-8 col-md-push-4 col-sm-8 col-sm-push-4">
               <div class="ticker blue_gradient">
@@ -10,12 +11,14 @@
             </div>
     <h1>{{displayDate | date:'EEEE dd MMMM yyyy'}}</h1>
     <!--PLACE CONTENT HERE-->
-    <div>
-		Do you want to create a new Cloud Fabric account?
-		<a ng-click="newCFAccount()">Yes</a>
-		<a href="/#/">No</a>
+ <div id="cloudFabricContent">
 
-	</div>
+        <div>Do you want to create a new Cloud Fabric account now?</div>
+        <div class="canopy-btn" ng-click="newCFAccount()">Yes</div>
+        <a href="/#/"><div class="canopy-btn">No</div></a>
+
+</div>
+
 	<!--END OF CONTENT-->
 
 </div>
