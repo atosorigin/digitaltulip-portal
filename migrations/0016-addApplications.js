@@ -18,7 +18,7 @@ exports.up = function(db, next){
         coll.insert({ name: "Compose", description : 'Canopy\'s IaaS Orchestratration Tool', img: '/img/Compose_blue.png', url: 'https://demo.compose.canopy-cloud.com/', bgcolour:"#006398", role: "openidm-authorized"},function(err, result) {});
         coll.insert({ name: "Cloud Fabric", description : 'Canopy\'s PaaS Solution', img: '/img/Fabric.png', url: '/#/cloud-fabric', bgcolour:"#006398", role: "openidm-authorized"},function(err, result) {});
         coll.insert({ name: "Google Apps", description : 'Google\'s online messaging and collaboration platform', img:'/img/gmail_256.png', url:'http://www.google.com/a/portal.canopy-cloud.com', bgcolour: "#006398" , role: ["openidm-authorized"]  },function(err, result) {});
-        coll.insert({ name: "Office 365", description : 'Microsoft\'s online messaging and collaboration platform', img:'/img/Office_256.png', url:'cipportal.onmicrosoft.com', bgcolour: "#0072C6", role: ["openidm-authorized"]},function(err, result) {});
+        coll.insert({ name: "Office 365", description : 'Microsoft\'s online messaging and collaboration platform', img:'/img/Office_256.png', url:'http://cipportal.onmicrosoft.com', bgcolour: "#0072C6", role: ["openidm-authorized"]},function(err, result) {});
         next();
     });
     
