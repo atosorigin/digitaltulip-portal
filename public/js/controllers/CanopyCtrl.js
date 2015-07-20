@@ -1,5 +1,13 @@
-angular.module('CanopyCtrl', []).controller('CanopyController', ['$scope', '$location', '$http', '$window', 'cloudfabric', function($scope, $location, $http, $window, cloudfabric) {
+angular.module('CanopyCtrl', []).controller('CanopyController', ['$scope', '$location', '$http', '$window', 'cloudfabric', 'news', function($scope, $location, $http, $window, cloudfabric, news) {
 
+
+		var news_items = news.get().
+  success(function(data, status, headers, config) {
+    $scope.news_items = data;
+
+  });
+
+	
 	$scope.newCFAccount = function () {
 		cloudfabric.get().success(function(data) {
 
