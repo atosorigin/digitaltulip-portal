@@ -205,5 +205,17 @@ module.exports = function(app, passport) {
       });
     });
 
+    app.get('/news', function(req, res) {
+      var url= 'http://micro-news.apps.tai-dev3.cfdev.canopy-cloud.com/';
 
+      // setting insecure conneciton
+      process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+      request.get(
+      {
+        url : url,
+      },function (error, response, body) {
+        res.send(body);
+      });
+    });
 };
