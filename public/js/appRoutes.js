@@ -42,7 +42,17 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
             resolve: {
                 loggedin: checkLoggedin
             }
+        })   
+
+        // cloud fabric page
+        .when('/news', {
+            templateUrl: 'views/news.html',
+            controller:  'NewsController', 
+            resolve: {
+                loggedin: checkLoggedin
+            }
         })     
+
         
     // $locationProvider.html5Mode(true).hashPrefix('#');
 
