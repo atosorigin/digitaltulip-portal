@@ -205,7 +205,7 @@ module.exports = function(app, passport) {
       });
     });
 
-    app.get('/news', function(req, res) {
+    app.get('/api/news', function(req, res) {
       var url= 'http://micro-news.apps.tai-dev3.cfdev.canopy-cloud.com/';
 
       // setting insecure conneciton
