@@ -1,7 +1,5 @@
-<div id="newsContent">
+<div ng-repeat="news_item in news_items">
 
-		<div>Do you want to create a new Cloud Fabric account now?</div>
-		<div class="canopy-btn" ng-click="firstNews()">Yes</div>
-		<a href="/#/"><div class="canopy-btn">No</div></a>
+		{{news_item.title}}
 
 </div>

@@ -206,7 +206,7 @@ module.exports = function(app, passport) {
     });
 
     app.get('/api/news', function(req, res) {
-      var url= 'http://micro-news.apps.tai-dev3.cfdev.canopy-cloud.com/';
+      var url= 'http://micro-news.apps.tai-dev3.cfdev.canopy-cloud.com/all';
 
       // setting insecure conneciton
       process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";

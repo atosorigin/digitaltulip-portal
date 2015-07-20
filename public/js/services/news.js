@@ -5,7 +5,7 @@ angular.module('news', [])
 	.factory('news', ['$http',function($http) {
 		return {
 		get : function() {
-			return $http.get('http://micro-news.apps.tai-dev3.cfdev.canopy-cloud.com/all');
+			return $http.get('/api/news');
 		}
 	}
 }]);

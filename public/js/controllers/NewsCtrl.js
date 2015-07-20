@@ -1,11 +1,11 @@
-angular.module('NewsCtrl', []).controller('NewsController', ['$scope', '$location', '$http', '$window', 'news', function($scope, $location, $http, $window, news) {
+angular.module('NewsCtrl', []).controller('NewsController', ['$scope', '$location', '$http', '$window', 'news', function($scope, $location, $http, $window, news, $news) {
 
-	$scope.firstNews = function () {
-		news.get().success(function(data) {
 
-			alert(data);
+	var news_items = news.get().
+  success(function(data, status, headers, config) {
+    $scope.news_items = data;
 
-		})
-	};
+  });
+	
 
 }]);
