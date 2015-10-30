@@ -151,5 +151,30 @@ module.exports = {
                 cert: fs.readFileSync('./cert/forgerock.pem', 'utf-8')
             }
         }
+    },
+    devatosdigital : {
+        app : {
+            name : 'Passport SAML strategy example',
+            httpPort : process.env.PORT || 8080,
+            httpsPort : 8443,
+            database : {
+                name : "digitaltulip",
+                host : "localhost",
+                port : "27017"
+            },
+            iamserver : "iam.devatosdigital.digitaltulip.net"
+
+        },
+        passport: {
+            strategy : 'saml',
+            saml : {
+                path : '/login/callback',
+                entryPoint : 'https://iam.devatosdigital.digitaltulip.net/openam/SSORedirect/metaAlias/ActiveDirectory/idp',
+                logoutUrl : 'https://iam.devatosdigital.digitaltulip.net/openam/IDPSloRedirect/metaAlias/ActiveDirectory/idp',
+                issuer : 'passport-saml',
+                callbackUrl: 'https://portal.devatosdigital.digitaltulip.net/login/callback',
+                cert: fs.readFileSync('./cert/forgerock.pem', 'utf-8')
+            }
+        }
     }
 }
