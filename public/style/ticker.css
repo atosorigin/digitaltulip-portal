@@ -106,6 +106,10 @@
   }
 }
 
+.ticker a:link {
+  color:#fff;
+}
+
 /* OTHER COLORS */
 .blue { background: #66A3C7 }
 .blue_gradient { background: linear-gradient(to bottom,#1279ac 0%,#00679a 100%); }

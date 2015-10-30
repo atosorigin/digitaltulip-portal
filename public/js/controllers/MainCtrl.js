@@ -1,4 +1,11 @@
-angular.module('MainCtrl', []).controller('MainController', ['$scope', '$window', '$http', '$interval', '$timeout', 'application', 'notification', function($scope, $window, $http, $interval, $timeout, application, notification) {
+angular.module('MainCtrl', []).controller('MainController', ['$scope', '$window', '$http', '$interval', '$timeout', 'application', 'notification', 'news', function($scope, $window, $http, $interval, $timeout, application, notification, news) {
+
+
+    var news_items = news.get().
+  success(function(data, status, headers, config) {
+    $scope.news_items = data;
+
+  });
 
     var dragging = false;
     $scope.displayDate = new Date();

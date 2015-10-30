@@ -3,6 +3,7 @@ module.exports = function(app, passport) {
     var Application = require('../models/application');
     var Entitlements = require('../models/entitlements')
     var Notifications = require('../models/notifications');
+    var request = require('request');
 
     function parseCookies(request) {
         var list = {},
@@ -184,5 +185,37 @@ module.exports = function(app, passport) {
 
     });
 
+    app.get('/api/cloudfabric/', auth, function(req, res) {
+      var username= 'cf-requestor';
+      var password= 'GenEfbeeWrosFexofufupniwydHeur';
+      var url= 'https://cip-cf-api.apps.dev.labs.cf.canopy-cloud.com/cf';
+      var auth = "Basic " + new Buffer(username + ":" + password).toString("base64");
 
+      // setting insecure conneciton
+      process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+      request.post(
+      {
+        url : url,
+        headers : {
+          "Authorization" : auth
+        }
+      },function (error, response, body) {
+        res.send(body);
+      });
+    });
+
+    app.get('/api/news', function(req, res) {
+      var url= 'http://micro-news.apps.tai-dev3.cfdev.canopy-cloud.com/all';
+
+      // setting insecure conneciton
+      process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+      request.get(
+      {
+        url : url,
+      },function (error, response, body) {
+        res.send(body);
+      });
+    });
 };

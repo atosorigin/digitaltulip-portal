@@ -34,11 +34,27 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
                 loggedin: checkLoggedin
             }
 		})
-         
+
+        // cloud fabric page
+        .when('/cloud-fabric', {
+            templateUrl: 'views/cloud-canopy.html',
+            controller:  'CanopyController', 
+            resolve: {
+                loggedin: checkLoggedin
+            }
+        })   
+
+        // cloud fabric page
+        .when('/news', {
+            templateUrl: 'views/news.html',
+            controller:  'NewsController', 
+            resolve: {
+                loggedin: checkLoggedin
+            }
+        })     
+
         
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true).hashPrefix('#');
 
 }]);
-
-
          

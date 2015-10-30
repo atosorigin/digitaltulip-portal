@@ -1,5 +1,4 @@
-
-  <div class="col-md-8 col-md-push-4 col-sm-8 col-sm-push-4">
+<div class="col-md-8 col-md-push-4 col-sm-8 col-sm-push-4">
               <div class="ticker blue_gradient">
                 <div class="viewport">  
                         <span style="background:none; background-image:none; background-color: none; box-shadow: 0px 0px 0px 0px;"><strong>Latest News - </strong></span>
@@ -9,17 +8,16 @@
                 </div>
             </div>
     <h1>{{displayDate | date:'EEEE dd MMMM yyyy'}}</h1>
-    <div gridster="gridsterOpts" class='gridsterOpts'>
-        <li gridster-item="obj" ng-repeat="obj in applications" ng-style="{'background-color': '{{obj.bgcolour}}'}" class="tile">
-            <a href="{{obj.url}}" target="_self">
-                <img src="{{obj.img}}" class="img-responsive" />
-                <div class="appname">{{obj.name}}</div>
-                <appdesc>
-                    <p>{{obj.description}}</p>
-                </appdesc>
-            </a>
-        </li>
-    </div>
+    <!--PLACE CONTENT HERE-->
+ <div id="cloudFabricContent">
+
+        <div>Do you want to create a new Cloud Fabric account now?</div>
+        <div class="canopy-btn" ng-click="newCFAccount()">Yes</div>
+        <a href="/#/"><div class="canopy-btn">No</div></a>
+
+</div>
+
+	<!--END OF CONTENT-->
 
 </div>
 
@@ -56,4 +54,10 @@
         </a>
     </div>
 </div>
+
+
+
+
+
+
 
